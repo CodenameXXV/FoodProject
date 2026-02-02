@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Project - Traditional Food</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .selection-screen, .topic-screen {
+            text-align: center;
+        }
+
+        .topic-screen {
+            display: none;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+
+        .group-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .group-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 30px 60px;
+            font-size: 2em;
+            font-weight: bold;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .group-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .group-btn:active {
+            transform: translateY(-2px);
+        }
+
+        .topic-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+            font-size: 2em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .instructions {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .instructions h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .instructions ol {
+            margin-left: 25px;
+            line-height: 2;
+        }
+
+        .instructions li {
+            margin: 15px 0;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .instructions strong {
+            color: #764ba2;
+        }
+
+        .back-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        .flag {
+            font-size: 3em;
+            margin: 20px 0;
+        }
+
+        .tip-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .tip-box strong {
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Selection Screen -->
+        <div class="selection-screen" id="selectionScreen">
+            <h1>🍽️ Traditional Food Project 🍽️</h1>
+            <p class="subtitle">Choose your group to see your topic!</p>
+            <div class="group-buttons">
+                <button class="group-btn" onclick="selectGroup(1)">Group 1</button>
+                <button class="group-btn" onclick="selectGroup(2)">Group 2</button>
+            </div>
+        </div>
+
+        <!-- Topic Screen -->
+        <div class="topic-screen" id="topicScreen">
+            <h1>Your Topic</h1>
+            <div class="flag" id="flag"></div>
+            <div class="topic-box" id="topicBox"></div>
+
+            <div class="instructions">
+                <h2>📝 Instructions for Your Group</h2>
+                <ol>
+                    <li><strong>Work together</strong> with all members of your group.</li>
+                    <li><strong>Research your topic:</strong> Find information about traditional food from your country (Ukraine or England).</li>
+                    <li><strong>Create a presentation</strong> that includes:
+                        <ul style="margin-top: 10px;">
+                            <li>Names of 3-5 traditional dishes</li>
+                            <li>Pictures of the food</li>
+                            <li>Main ingredients (what is in the food)</li>
+                            <li>When people eat these dishes (holidays, daily meals, etc.)</li>
+                            <li>Why these dishes are important</li>
+                        </ul>
+                    </li>
+                    <li><strong>Make it creative!</strong> Use colors, pictures, and interesting facts.</li>
+                    <li><strong>Practice presenting</strong> together before showing it to the class.</li>
+                    <li><strong>Everyone should speak</strong> during the presentation.</li>
+                </ol>
+
+                <div class="tip-box">
+                    <strong>💡 Helpful Tips:</strong><br>
+                    • Use the internet to find information and pictures<br>
+                    • Ask your parents or grandparents about traditional food<br>
+                    • Make your presentation fun and interesting!<br>
+                    • Time: 5-7 minutes for your presentation
+                </div>
+            </div>
+
+            <button class="back-btn" onclick="goBack()">← Choose Another Group</button>
+        </div>
+    </div>
+
+    <script>
+        function selectGroup(groupNumber) {
+            const topics = {
+                1: {
+                    text: "The Traditional Food of Ukraine",
+                    flag: "🇺🇦"
+                },
+                2: {
+                    text: "The Traditional Food of England",
+                    flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+                }
+            };
+
+            const topic = topics[groupNumber];
+            
+            document.getElementById('topicBox').textContent = topic.text;
+            document.getElementById('flag').textContent = topic.flag;
+            document.getElementById('selectionScreen').style.display = 'none';
+            document.getElementById('topicScreen').style.display = 'block';
+        }
+
+        function goBack() {
+            document.getElementById('selectionScreen').style.display = 'block';
+            document.getElementById('topicScreen').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
